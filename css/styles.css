@@ -1,0 +1,247 @@
+:root {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h1 {
+  margin: 50px 0;
+  width: fit-content;
+}
+
+.container .form {
+  width: 500px;
+  height: auto;
+}
+
+/* ------------------------
+FORM STYLES
+--------------------------- */
+.form {
+  background-color: #ffffff;
+  padding: 60px 25px;
+  box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+/* list items styles */
+.steps .listItem {
+  transition: 0.3s height ease-out;
+  -webkit-transition: 0.3s height ease-out;
+  -moz-transition: 0.3s height ease-out;
+  -ms-transition: 0.3s height ease-out;
+  -o-transition: 0.3s height ease-out;
+  /* hide closed items */
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* this property should be animated using js */
+  height: 66px; /*height step + 10px margin + 20px visible line */
+}
+
+.listItem + .listItem {
+  margin-top: 10px;
+}
+
+/* - step styles */
+.listItem .col1 {
+  width: 60px; /* temporary fixed width, should be changed later */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listItem .col1 .step {
+  color: #fff;
+  background-color: #007bff;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1em;
+  /* add some space between step and line */
+  margin-bottom: 10px;
+}
+
+.listItem .col1 .line {
+  /* make line stretch to bottom of list item */
+  flex-grow: 1;
+  width: 2px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.listItem:last-of-type .col1 .line {
+  /* hide line on last list item */
+  width: 0px;
+}
+
+/* - body styles */
+.listItem .col2 {
+  /* make col2 take up left over width in list item container */
+  flex: 1;
+  /* (col1's width - line width) / 2  */
+  margin-right: 29px;
+}
+
+.listItem .stepBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem .stepBody .stepTitle {
+  /* height of tile should equal step icon height */
+  height: 36px;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.listItem .stepBody .content {
+  display: flex;
+  flex-direction: column;
+  /* hide step content by default */
+  visibility: hidden;
+}
+
+.show.listItem .stepBody .content {
+  visibility: visible;
+}
+
+/* - 1. input styles */
+.listItem .stepBody .content .inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem .stepBody .content .inputs:focus-within label {
+  /* make label also change color on focus */
+  color: #19a974;
+}
+.listItem .stepBody .content .inputs label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: 0.25s color ease-out;
+  -webkit-transition: 0.25s color ease-out;
+  -moz-transition: 0.25s color ease-out;
+  -ms-transition: 0.25s color ease-out;
+  -o-transition: 0.25s color ease-out;
+}
+
+.listItem .stepBody .content .inputs input {
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
+  -webkit-transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
+  -moz-transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
+  -ms-transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
+  -o-transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
+  font-size: 1.125rem;
+  line-height: 1.5em;
+  margin-top: 8px;
+}
+
+.listItem .stepBody .content .inputs input:focus {
+  margin-top: 20px;
+  outline: 0;
+  border-bottom: 3px solid #19a974;
+}
+
+.listItem:last-of-type .stepBody .content .inputs p {
+  font-size: 1.125rem;
+  line-height: 1.6em;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* - 2. buttons */
+.listItem .stepBody .content .buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0;
+}
+
+.listItem:last-of-type .stepBody .content .buttons {
+  margin-bottom: 10px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.buttons .next,
+.buttons .submit {
+  border: 0;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1rem;
+  line-height: 1em;
+  padding: 14px 24px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.buttons .prev {
+  border: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 24px;
+}
+
+.message {
+  padding: 5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  height: 24px;
+}
+
+.success {
+  color: #19a974;
+}
+
+.fail {
+  color: #ff4136;
+}
+
+.message .success,
+.message .fail {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.message.success .success,
+.message.fail .fail {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* green: #19a974
+red: #ff4136 */
