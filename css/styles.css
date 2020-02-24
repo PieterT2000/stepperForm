@@ -113,7 +113,7 @@ FORM STYLES
   display: flex;
   align-items: center;
   font-size: 1.25rem;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .listItem .stepBody .content {
@@ -128,26 +128,43 @@ FORM STYLES
 }
 
 /* - 1. input styles */
-.listItem .stepBody .content .inputs {
+.listItem .stepBody .content .inputGroup {
   display: flex;
   flex-direction: column;
 }
 
-.listItem .stepBody .content .inputs:focus-within label {
+.listItem .stepBody .content .inputGroup:focus-within label {
+  /* move label up on input focus */
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
   /* make label also change color on focus */
   color: #19a974;
 }
-.listItem .stepBody .content .inputs label {
+
+.listItem .stepBody .content .inputGroup label {
   font-size: 0.875rem;
   font-weight: 500;
-  transition: 0.25s color ease-out;
-  -webkit-transition: 0.25s color ease-out;
-  -moz-transition: 0.25s color ease-out;
-  -ms-transition: 0.25s color ease-out;
-  -o-transition: 0.25s color ease-out;
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+  -moz-transform: translateY(30px);
+  -ms-transform: translateY(30px);
+  -o-transform: translateY(30px);
+  transition: 0.25s color ease-out, 0.25s transform ease-out;
+  -webkit-transition: 0.25s color ease-out, 0.25s transform ease-out;
+  -moz-transition: 0.25s color ease-out, 0.25s transform ease-out;
+  -ms-transition: 0.25s color ease-out, 0.25s transform ease-out;
+  -o-transition: 0.25s color ease-out, 0.25s transform ease-out;
 }
 
-.listItem .stepBody .content .inputs input {
+/* add space to each consecutive input label */
+.listItem .stepBody .content .inputGroup + .inputGroup {
+  margin-top: 20px;
+}
+
+.listItem .stepBody .content .inputGroup input {
   border: 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
@@ -157,16 +174,15 @@ FORM STYLES
   -o-transition: 0.25s margin-top ease-out, border-bottom 0.25s ease-out;
   font-size: 1.125rem;
   line-height: 1.5em;
-  margin-top: 8px;
-}
-
-.listItem .stepBody .content .inputs input:focus {
   margin-top: 20px;
-  outline: 0;
-  border-bottom: 3px solid #19a974;
 }
 
-.listItem:last-of-type .stepBody .content .inputs p {
+.listItem .stepBody .content .inputGroup input:focus {
+  outline: 0;
+  border-bottom: 2px solid #19a974;
+}
+
+.listItem:last-of-type .stepBody .content .inputGroup p {
   font-size: 1.125rem;
   line-height: 1.6em;
   color: rgba(0, 0, 0, 0.8);
@@ -245,3 +261,18 @@ button:focus {
 
 /* green: #19a974
 red: #ff4136 */
+
+/* JS STYLES */
+.listItem .content .js-focus.inputGroup label {
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  color: #19a974;
+}
+
+.listItem .content .js-focus.inputGroup input {
+  outline: 0;
+  border-bottom: 2px solid #19a974;
+}

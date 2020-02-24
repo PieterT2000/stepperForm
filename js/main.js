@@ -24,11 +24,19 @@ steps.addEventListener("click", e => {
   btn.classList.contains("next")
     ? changeSteps(currentStep, currentStep.nextElementSibling)
     : btn.classList.contains("prev")
-    ? changeSteps(currentStep, currentStep.previousElementSibling)
+    ? changeSteps(currentStep, currentStep.previousElementSibling, "prev")
     : submit(btn);
 });
 
-function changeSteps(currentStep, newStep) {
+function changeSteps(currentStep, newStep, direction = "next") {
+  // if forward button is pressed, check if all fields are filled in
+  if (direction === "next") {
+    const inputs = currentStep.querySelectorAll("input");
+    for (let input of inputs) {
+      if (!input.value) return;
+    }
+  }
+
   // 1. close current step
   currentStep.style.height = getComputedStyle(newStep).height; // get height of (yet) closed next step
   currentStep.classList.remove("show");
@@ -46,3 +54,19 @@ function submit(btn) {
   // hide back button
   btn.nextElementSibling.style.display = "none";
 }
+
+// when input is filled, add focus class
+// 1. select input fields
+const inputs = {
+  name: steps.querySelector("#name"),
+  email: steps.querySelector("#email"),
+  password: steps.querySelector("#password")
+};
+// 2. loop over each input and add an event listener
+Object.values(inputs).forEach(input => {
+  input.addEventListener("change", e => {
+    const inputParent = e.target.closest(".inputGroup");
+    if (!e.target.value) return inputParent.classList.remove("js-focus");
+    inputParent.classList.add("js-focus");
+  });
+});

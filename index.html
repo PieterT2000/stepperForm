@@ -28,13 +28,13 @@
                   Step 1
                 </div>
                 <div class="content">
-                  <div class="inputs">
-                    <label for="email">How should we call you?</label>
+                  <div class="inputGroup">
+                    <label for="name">How should we call you?</label>
                     <input
                       autocomplete="off"
-                      type="email"
-                      name="email"
-                      id="email"
+                      type="text"
+                      name="name"
+                      id="name"
                     />
                   </div>
                   <div class="buttons">
@@ -53,7 +53,17 @@
                   Step 2
                 </div>
                 <div class="content">
-                  <div class="inputs">
+                  <!-- wrap inputs into div to enable :focus-within css selector on container -->
+                  <div class="inputGroup">
+                    <label for="email">Your email</label>
+                    <input
+                      autocomplete="off"
+                      type="email"
+                      name="email"
+                      id="email"
+                    />
+                  </div>
+                  <div class="inputGroup">
                     <label for="password">Set password</label>
                     <input
                       autocomplete="off"
@@ -79,7 +89,7 @@
                   Step 3
                 </div>
                 <div class="content">
-                  <div class="inputs">
+                  <div class="inputGroup">
                     <p>
                       Congratulations! Now you're all set,<br />
                       hit that submit button!
