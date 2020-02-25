@@ -70,3 +70,17 @@ Object.values(inputs).forEach(input => {
     inputParent.classList.add("js-focus");
   });
 });
+
+/* Converting to FP
+Enduser should have following endpoints:
+- next
+- previous
+- submit
+*/
+
+/*
+TODOS:
+- convert to FP design pattern
+- better error handling
+- emailadress + password validation
+*/
