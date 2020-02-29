@@ -1,6 +1,5 @@
 :root {
   font-family: "Lato", sans-serif;
-  font-size: 16px;
 }
 
 .container {
@@ -18,6 +17,11 @@
 .container .form {
   width: 500px;
   height: auto;
+}
+
+button {
+  opacity: 1;
+  cursor: pointer;
 }
 
 /* ------------------------
@@ -80,6 +84,11 @@ FORM STYLES
   line-height: 1em;
   /* add some space between step and line */
   margin-bottom: 10px;
+}
+
+.col1 .step span {
+  /* show step number by default */
+  display: block;
 }
 
 .listItem .col1 .line {
@@ -259,10 +268,9 @@ button:focus {
   visibility: visible;
 }
 
-/* green: #19a974
-red: #ff4136 */
-
-/* JS STYLES */
+/* ------------------------
+JS STYLES 
+--------------------------- */
 .listItem .content .js-focus.inputGroup label {
   transform: translateY(0px);
   -webkit-transform: translateY(0px);
@@ -275,4 +283,47 @@ red: #ff4136 */
 .listItem .content .js-focus.inputGroup input {
   outline: 0;
   border-bottom: 2px solid #19a974;
+}
+
+/* disabled button styles */
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* hide span with number upon completion and show checkmark */
+.done .col1 .step span:first-of-type {
+  display: none;
+}
+
+.done .col1 .step .checkmark {
+  content: "";
+  position: relative;
+  right: 2px;
+  height: 17px;
+  width: 3px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform-origin: bottom center;
+  margin-bottom: 3px;
+}
+
+.done .col1 .step .checkmark::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  background-color: #fff;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform-origin: bottom left;
+  height: 9px;
+  width: 3px;
 }
